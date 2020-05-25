@@ -4,10 +4,10 @@
     <link href="/css/bootstrap.css" rel="stylesheet" />
     <script src="/js/bootstrap.js"></script>
     <link href="/css/main.css" rel="stylesheet" />
-    <title>Editar estudiante</title>
+    <title>${mode_title} estudiante</title>
   </head>
   <body>
-    <form class="edit-form" method="POST" action=${endpoint}>
+    <form class="edit-form" method=${method} action="/students">
       <div class="form-group">
         <label for="exampleInputEmail1">Matricula</label>
         <input
@@ -16,8 +16,8 @@
           name="matricula"
           id="matricula"
           placeholder="Introduzca su matricula"
-          value="${estudiante.matricula}"
-          ${matricula_enabled}
+          value="${student.id}"
+          ${id_enabled}
         />
       </div>
       <div class="form-group">
@@ -28,7 +28,7 @@
           id="nombre"
           name="nombre"
           placeholder="Introduzca su nombre"
-          value="${estudiante.nombre}"
+          value="${student.firstName}"
         />
       </div>
       <div class="form-group">
@@ -39,7 +39,7 @@
           id="apellido"
           name="apellido"
           placeholder="Introduzca su apellido"
-          value="${estudiante.apellido}"
+          value="${student.lastName}"
         />
       </div>
       <div class="form-group">
@@ -50,10 +50,10 @@
           id="telefono"
           name="telefono"
           placeholder="Introduzca su telefono"
-          value="${estudiante.telefono}"
+          value="${student.phoneNumber}"
         />
       </div>
-      <button type="submit" class="btn btn-primary">${field}</button>
+      <button type="submit" class="btn btn-primary">${mode_title}</button>
     </form>
   </body>
 </html>

@@ -14,6 +14,13 @@ public class Student {
 
     }
 
+    public Student(Long id, String firstName, String lastName, String phoneNumber) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+    }
+
     @Id
     public Long getId() {
         return id;

@@ -21,17 +21,17 @@
           </tr>
         </thead>
         <tbody>
-        <#list misEstudiantes as estudiante>
+        <#list students as student>
           <tr>
-            <th scope="row">${estudiante.matricula}</th>
-            <td>${estudiante.nombre}</td>
-            <td>${estudiante.apellido}</td>
-            <td>${estudiante.telefono}</td>
+            <th scope="row">${student.id}</th>
+            <td>${student.firstName}</td>
+            <td>${student.lastName}</td>
+            <td>${student.phoneNumber}</td>
             <td>
-              <a class="btn btn-primary" href="modificar-estudiante/${estudiante.matricula}" role="button">Modificar</a>
+              <a class="btn btn-primary" href="modificar-estudiante/${estudiante.id}" role="button">Modificar</a>
             </td>
             <td>
-              <form method="POST" action="eliminar-estudiante/${estudiante.matricula}">
+              <form method="DELETE" action="students/${estudiante.id}">
                 <button type="submit" class="btn btn-danger">Eliminar</button>
               </form>
             </td>

@@ -1,59 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="/css/bootstrap.css" rel="stylesheet" />
+<head>
+    <link href="/css/bootstrap.css" rel="stylesheet"/>
     <script src="/js/bootstrap.js"></script>
-    <link href="/css/main.css" rel="stylesheet" />
+    <link href="/css/main.css" rel="stylesheet"/>
     <title>${mode_title} estudiante</title>
-  </head>
-  <body>
-    <form class="edit-form" method=${method} action="/students">
-      <div class="form-group">
+</head>
+<body>
+<form class="edit-form" method=${method} action=${action}>
+    <div class="form-group">
         <label for="exampleInputEmail1">Matricula</label>
         <input
-          type="text"
-          class="form-control"
-          name="matricula"
-          id="matricula"
-          placeholder="Introduzca su matricula"
-          value="${student.id}"
-          ${id_enabled}
+                type="text"
+                class="form-control"
+                name="id"
+                id="id"
+                placeholder="Introduzca su matricula"
+                value="${student.id?c}"
         />
-      </div>
-      <div class="form-group">
+    </div>
+    <div class="form-group">
         <label for="exampleInputEmail1">Nombre</label>
         <input
-          type="text"
-          class="form-control"
-          id="nombre"
-          name="nombre"
-          placeholder="Introduzca su nombre"
-          value="${student.firstName}"
+                type="text"
+                class="form-control"
+                id="firstName"
+                name="firstName"
+                placeholder="Introduzca su nombre"
+                value="${student.firstName}"
         />
-      </div>
-      <div class="form-group">
+    </div>
+    <div class="form-group">
         <label for="exampleInputEmail1">Apellido</label>
         <input
-          type="text"
-          class="form-control"
-          id="apellido"
-          name="apellido"
-          placeholder="Introduzca su apellido"
-          value="${student.lastName}"
+                type="text"
+                class="form-control"
+                id="lastName"
+                name="lastName"
+                placeholder="Introduzca su apellido"
+                value="${student.lastName}"
         />
-      </div>
-      <div class="form-group">
+    </div>
+    <div class="form-group">
         <label for="exampleInputEmail1">Telefono</label>
         <input
-          type="tel"
-          class="form-control"
-          id="telefono"
-          name="telefono"
-          placeholder="Introduzca su telefono"
-          value="${student.phoneNumber}"
+                type="tel"
+                class="form-control"
+                id="phoneNumber"
+                name="phoneNumber"
+                placeholder="Introduzca su telefono"
+                value="${student.phoneNumber}"
         />
-      </div>
-      <button type="submit" class="btn btn-primary">${mode_title}</button>
-    </form>
-  </body>
+    </div>
+    <button type="submit" class="btn btn-primary">${mode_title}</button>
+</form>
+</body>
 </html>

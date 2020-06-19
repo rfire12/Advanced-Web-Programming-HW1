@@ -1,47 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="/css/bootstrap.css" rel="stylesheet" />
+<head>
+    <link href="/css/bootstrap.css" rel="stylesheet"/>
     <script src="/js/bootstrap.js"></script>
-    <link href="/css/main.css" rel="stylesheet" />
+    <link href="/css/main.css" rel="stylesheet"/>
     <title>Listado de estudiantes</title>
-  </head>
-  <body>
-    <h2 class="list-title">Lista de estudiantes</h2>
-    <div class="students-list">
-      <table class="table table-striped">
+</head>
+<body>
+<h2 class="list-title">Lista de estudiantes</h2>
+<div class="students-list">
+    <table class="table table-striped">
         <thead>
-          <tr>
+        <tr>
             <th scope="col">Matricula</th>
             <th scope="col">Nombre</th>
             <th scope="col">Apellido</th>
             <th scope="col">Telefono</th>
             <th scope="col">Modificar</th>
             <th scope="col">Eliminar</th>
-          </tr>
+        </tr>
         </thead>
         <tbody>
         <#list students as student>
-          <tr>
-            <th scope="row">${student.id}</th>
-            <td>${student.firstName}</td>
-            <td>${student.lastName}</td>
-            <td>${student.phoneNumber}</td>
-            <td>
-              <a class="btn btn-primary" href="modificar-estudiante/${estudiante.id}" role="button">Modificar</a>
-            </td>
-            <td>
-              <form method="DELETE" action="students/${estudiante.id}">
-                <button type="submit" class="btn btn-danger">Eliminar</button>
-              </form>
-            </td>
-          </tr>
+            <tr>
+                <th scope="row">${student.id?c}</th>
+                <td>${student.firstName}</td>
+                <td>${student.lastName}</td>
+                <td>${student.phoneNumber}</td>
+                <td>
+                    <a class="btn btn-primary" href="modificar-estudiante/${student.id?c}" role="button">Modificar</a>
+                </td>
+                <td>
+                    <form method="POST" action="/students/${student.id?c}/delete">
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
         </#list>
         </tbody>
-      </table>
-    </div>
-    <a class="add-student btn btn-primary" href="crear-estudiante">
-      Crear Estudiante
-    </a>
-  </body>
+    </table>
+</div>
+<a class="add-student btn btn-primary" href="crear-estudiante">
+    Crear Estudiante
+</a>
+</body>
 </html>

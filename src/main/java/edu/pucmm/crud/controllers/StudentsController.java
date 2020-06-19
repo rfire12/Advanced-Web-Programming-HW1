@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.ModelAndView;
+import java.util.Map;
 
 import java.util.HashMap;
 
@@ -19,14 +20,14 @@ public class StudentsController {
 
     @GetMapping("/")
     public ModelAndView main() {
-        var params = new HashMap<String, Object>();
+        Map<String,Object> params = new HashMap<String, Object>();
         params.put("students", studentsServices.findAll());
         return new ModelAndView("main", params);
     }
 
     @GetMapping("/crear-estudiante")
     public ModelAndView createStudent() {
-        var params = new HashMap<String, Object>();
+        Map<String,Object> params = new HashMap<String, Object>();
         Student student = new Student((long) 0, "", "", "");
         params.put("student", student);
         params.put("mode_title", "Crear");
@@ -37,7 +38,7 @@ public class StudentsController {
 
     @GetMapping("/modificar-estudiante/{id}")
     public ModelAndView editStudent(@PathVariable(value = "id") Long id) {
-        var params = new HashMap<String, Object>();
+        Map<String,Object> params = new HashMap<String, Object>();
         Student student = studentsServices.findById(id).orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Unable to find Student"));
         params.put("student", student);
         params.put("mode_title", "Editar");
